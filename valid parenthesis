@@ -1,0 +1,30 @@
+jis order me open honge usi order me close bhi hone chahiye 
+class Solution {
+public:
+    bool match(char c1, char c2){
+        return (c1=='(' && c2==')' || c1=='[' && c2==']' || c1=='{' && c2=='}');
+    }
+    bool isValid(string s) {
+        int n=s.length();
+        if(n%2!=0)return false;
+        stack<int> st;
+        for(int i=0; i<n; i++){
+        if(s[i]=='(' || s[i]== '[' || s[i]=='{'){
+            st.push(s[i]);
+        }
+        else{
+            if(st.empty() || !match(st.top(), s[i]))
+                return false;
+            st.pop();
+            }    
+        }
+        if(st.empty()){
+        return true;
+        }
+        
+        return false;
+    }
+    
+};
+line 21, 25 can be replaced by return (st.empty());
+we used a stack to maintain the order and only pushed opening brackets in it
