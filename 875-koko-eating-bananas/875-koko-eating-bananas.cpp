@@ -4,34 +4,25 @@ public:
         int low=1;
         int high=1e9;
         
-        if(h<piles.size()){
-            return -1;
-        }
-        //now binary search
         while(low<=high){
-
-            int k=(low+high)/2;
-            int H=0;
+            //koko wants banana what is the rate
+            int mid=low+ (high-low)/2;
+            //for time taken at a particualr speed
+            int time_taken=0;
             for(int i=0; i<piles.size(); i++){
-
-                H +=ceil(1.0 *piles[i]/k);
+                time_taken += ceil(1.0* piles[i]/mid);
             }
-            // you are too slow
-            if(H>h){
-
-                low=k+1;
+            // we can use time taken as criteria for decreasing the areaa to be serached
+            if(time_taken>h){
+                //speed is too slow
+                low=mid+1;
+            }
             
-            }
-            //you are too fast
             else{
-                high=k-1;
+                high=mid-1;
             }
         }
+        
         return low;
     }
 };
-
-
-
-
- 
