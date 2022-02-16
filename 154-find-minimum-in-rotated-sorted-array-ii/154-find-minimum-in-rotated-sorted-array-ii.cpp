@@ -3,7 +3,7 @@ public:
     int findMin(vector<int>& nums) {
         int hi=nums.size()-1;
         int lo=0;
-        
+        // take a look at the different templates for binary search
         while(lo<hi){
 
             int mid= lo+ (hi-lo)/2;
