@@ -1,0 +1,1 @@
+replace left with right and do preorder traversal then reverse your answer
